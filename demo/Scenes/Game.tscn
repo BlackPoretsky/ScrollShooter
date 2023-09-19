@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://biutwqar8juah"]
+
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_d54ga"]
+[ext_resource type="PackedScene" uid="uid://c7s5mawlr3ap0" path="res://Scenes/PlayerShip.tscn" id="2_drk4q"]
+[ext_resource type="PackedScene" uid="uid://cluheelvojn5d" path="res://Scenes/Enemy.tscn" id="2_rogsb"]
+[ext_resource type="PackedScene" uid="uid://c1o6bbv8wajv0" path="res://Scenes/DiverEnemy.tscn" id="3_pvd0n"]
+
+[node name="Game" type="Game"]
+script = ExtResource("1_d54ga")
+enemy_scenes = Array[PackedScene]([ExtResource("2_rogsb"), ExtResource("3_pvd0n")])
+
+[node name="EnemySpawnerTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="PlayerShip" parent="." groups=["player"] instance=ExtResource("2_drk4q")]
+position = Vector2(280, 893)
+
+[node name="LaserContainer" type="Node2D" parent="."]
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[connection signal="timeout" from="EnemySpawnerTimer" to="." method="_on_enemy_spawner_timer_timeout"]
