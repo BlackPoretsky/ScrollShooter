@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3m1lrxuplrdu"]
+
+[ext_resource type="Script" path="res://Scripts/GameOverScene.gd" id="1_t761j"]
+[ext_resource type="FontFile" uid="uid://bnfvnvv1h0ll5" path="res://assets/Font/kenvector_future_thin.ttf" id="2_y0ydd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju0pd"]
+bg_color = Color(0.901961, 0.894118, 0.894118, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fisg"]
+font = ExtResource("2_y0ydd")
+font_size = 46
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2fkg"]
+font = ExtResource("2_y0ydd")
+font_size = 21
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ca1vg"]
+font = ExtResource("2_y0ydd")
+font_size = 21
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37rte"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="GameOverScreen" type="GameOverScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t761j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.596078)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.124
+anchor_top = 0.237
+anchor_right = 0.876
+anchor_bottom = 0.549
+offset_left = 2.03999
+offset_top = 19.48
+offset_right = 1.95996
+offset_bottom = 18.96
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ju0pd")
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.153
+anchor_right = 0.86
+anchor_bottom = 0.194
+offset_left = -0.118004
+offset_top = 40.0
+offset_right = -0.160004
+offset_bottom = 39.994
+grow_horizontal = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_2fisg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HiScore" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.153
+anchor_right = 0.86
+anchor_bottom = 0.194
+offset_left = -0.118004
+offset_top = 98.0
+offset_right = -0.160004
+offset_bottom = 97.994
+grow_horizontal = 2
+text = "HI - SCORE: 0"
+label_settings = SubResource("LabelSettings_i2fkg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.153
+anchor_right = 0.86
+anchor_bottom = 0.194
+offset_left = -0.118004
+offset_top = 141.0
+offset_right = -0.160004
+offset_bottom = 140.994
+grow_horizontal = 2
+text = "SCORE: 0"
+label_settings = SubResource("LabelSettings_ca1vg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = 60.5
+offset_right = 117.0
+offset_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.918834, 0.918834)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("2_y0ydd")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_37rte")
+text = "Restart"

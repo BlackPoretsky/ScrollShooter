@@ -9,8 +9,9 @@ namespace godot
 		GDCLASS(Enemy, Area2D)
 
 	private:
-		float Velocity = 300;
-		int HP = 1;
+		float Velocity;
+		int HP;
+		int Points;
 
 	protected:
 		static void _bind_methods();
@@ -20,13 +21,15 @@ namespace godot
 		~Enemy();
 
 		void Begin(double delta);
-		void TakeDamage(int Damage);
+		void TakeDamage(int damage);
 		void Die();
 
-		void SetHP(int hp) { HP = hp; }
-		int GetHP() { return HP; }
-
+		void SetPoints(int points) { Points = points; }
 		void SetVelocity(float velocity) { Velocity = velocity; }
+		void SetHP(int hp) { HP = hp; }
+
+		int GetHP() { return HP; }
+		int GetPoints() { return Points; }
 		double GetVelocity() { return Velocity; }
 	};
 }

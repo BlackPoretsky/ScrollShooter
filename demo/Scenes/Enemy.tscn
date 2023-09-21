@@ -1,23 +1,25 @@
 [gd_scene load_steps=3 format=3 uid="uid://cluheelvojn5d"]
 
-[ext_resource type="Texture2D" uid="uid://b43i2faut7nwg" path="res://assets/PNG/Enemies/enemyBlack3.png" id="1_0j183"]
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_jx228"]
+[ext_resource type="Texture2D" uid="uid://dl6vpi53iirtj" path="res://assets/enemy_E.png" id="2_g4koy"]
 
 [node name="Enemy" type="Enemy"]
+Velocity = 300.0
 HP = 2
+Points = 100
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_jx228")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_0j183")
+texture = ExtResource("2_g4koy")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-18, -25, -11, -25, -6, -29, 5, -29, 13, -24, 17, -25, 36, -2, 27, 29, 21, 29, 22, 19, 9, 15, 7, 23, -6, 23, -9, 15, -22, 19, -20, 28, -27, 29, -36, -2)
+polygon = PackedVector2Array(-34, 25, -27, 33, -20, 34, -13, 30, -11, 22, 11, 22, 12, 29, 18, 34, 27, 34, 33, 28, 34, 20, 35, -24, 29, -33, 15, -33, -29, -34, -34, -26)
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(0, -24)
+position = Vector2(0, -23)
 scale = Vector2(0.5, 0.5)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

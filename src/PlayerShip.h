@@ -9,7 +9,7 @@ namespace godot
 		GDCLASS(PlayerShip, CharacterBody2D)
 
 	private:
-		double Velocity = 300;
+		double Velocity;
 
 	protected:
 		static void _bind_methods();
@@ -19,7 +19,7 @@ namespace godot
 		~PlayerShip();
 
 		void Move(double delta);
-		void Shoot(Variant LazerScene, Variant Muzzel);
+		void Shoot(Variant lazerScene, Variant muzzel);
 		void Die();
 
 		void SetVelocity(double velocity) { Velocity = velocity; }

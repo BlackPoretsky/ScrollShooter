@@ -143,6 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\GameOverScreen.h" />
+    <ClInclude Include="src\HUD.h" />
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Laser.h" />
     <ClInclude Include="src\PlayerShip.h" />
@@ -151,6 +153,8 @@
     <ClInclude Include="src\register_types.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameOverScreen.cpp" />
+    <ClCompile Include="src\HUD.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\Laser.cpp" />
     <ClCompile Include="src\PlayerShip.cpp" />

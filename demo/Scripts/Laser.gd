@@ -11,4 +11,3 @@ func _on_area_entered(area):
 	if area is Enemy:
 		area.TakeDamage(Damage)
 		queue_free()
-	

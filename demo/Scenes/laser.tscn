@@ -8,6 +8,8 @@ radius = 3.75
 height = 42.5
 
 [node name="Laser" type="Laser"]
+Velocity = 600.0
+Damage = 1.0
 scale = Vector2(0.8, 0.8)
 collision_layer = 4
 collision_mask = 2

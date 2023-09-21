@@ -1,15 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://biutwqar8juah"]
+[gd_scene load_steps=10 format=3 uid="uid://biutwqar8juah"]
 
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_d54ga"]
 [ext_resource type="PackedScene" uid="uid://c7s5mawlr3ap0" path="res://Scenes/PlayerShip.tscn" id="2_drk4q"]
 [ext_resource type="PackedScene" uid="uid://cluheelvojn5d" path="res://Scenes/Enemy.tscn" id="2_rogsb"]
 [ext_resource type="PackedScene" uid="uid://c1o6bbv8wajv0" path="res://Scenes/DiverEnemy.tscn" id="3_pvd0n"]
+[ext_resource type="PackedScene" uid="uid://uwwcbl3qtnb1" path="res://Scenes/HUD.tscn" id="4_afqsh"]
+[ext_resource type="PackedScene" uid="uid://b3m1lrxuplrdu" path="res://Scenes/GameOverScene.tscn" id="5_2las0"]
+[ext_resource type="Texture2D" uid="uid://k76unxvf2fff" path="res://assets/Backgrounds/black.png" id="6_mrtbf"]
+[ext_resource type="Texture2D" uid="uid://thdl7nwy2ab" path="res://assets/star_tiny.png" id="7_kqs5p"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_shnix"]
+emission_shape = 3
+emission_box_extents = Vector3(270, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -1000.0
+initial_velocity_max = -1000.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.1
+scale_max = 0.1
 
 [node name="Game" type="Game"]
+HighScore = 373
 script = ExtResource("1_d54ga")
 enemy_scenes = Array[PackedScene]([ExtResource("2_rogsb"), ExtResource("3_pvd0n")])
 
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UILayer" instance=ExtResource("4_afqsh")]
+
+[node name="GameOverScreen" parent="UILayer" instance=ExtResource("5_2las0")]
+visible = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 960)
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("6_mrtbf")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 540, 960)
+
+[node name="StarParticlesEffects" type="GPUParticles2D" parent="."]
+position = Vector2(270, -50)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_shnix")
+texture = ExtResource("7_kqs5p")
+lifetime = 1.25
+preprocess = 5.0
+
 [node name="EnemySpawnerTimer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [node name="PlayerShip" parent="." groups=["player"] instance=ExtResource("2_drk4q")]

@@ -10,13 +10,23 @@ namespace godot
 
 	protected:
 		static void _bind_methods();
+		int Score = 0;
+		int HighScore;
 
 	public:
 		Game();
 		~Game();
 
 		void CheckInput();
-		void PlayerShot(Variant LaserContainer, Variant LaserScene, Vector2 Location);
+		void PlayerShot(Variant laserScene, Vector2 location);
+		void EnemySpawn(Variant enemy);
+		void SaveGame();
+		void LoadSaveGame();
+
+		void SetScore(int score) { Score = score; }
+		int GetScore() { return Score; }
+		void SetHighScore(int highScore) { HighScore = highScore; }
+		int GetHighScore() { return HighScore; }
 	};
 }
 

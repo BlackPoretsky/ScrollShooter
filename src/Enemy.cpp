@@ -10,9 +10,13 @@ void godot::Enemy::_bind_methods()
 	ClassDB::bind_method(D_METHOD("GetHP"), &Enemy::GetHP);
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "HP"), "SetHP", "GetHP");
 	
+	ClassDB::bind_method(D_METHOD("SetPoints"), &Enemy::SetPoints);
+	ClassDB::bind_method(D_METHOD("GetPoints"), &Enemy::GetPoints);
+	ADD_PROPERTY(PropertyInfo(Variant::INT, "Points"), "SetPoints", "GetPoints");
+	
 	ClassDB::bind_method(D_METHOD("Begin", "delta"), &Enemy::Begin);
 	ClassDB::bind_method(D_METHOD("Die"), &Enemy::Die);
-	ClassDB::bind_method(D_METHOD("TakeDamage", "Damage"), &Enemy::TakeDamage);
+	ClassDB::bind_method(D_METHOD("TakeDamage", "damage"), &Enemy::TakeDamage);
 }
 
 godot::Enemy::Enemy()
@@ -30,11 +34,14 @@ void godot::Enemy::Begin(double delta)
 	set_position(Location);
 }
 
-void godot::Enemy::TakeDamage(int Damage)
+void godot::Enemy::TakeDamage(int damage)
 {
-	HP -= Damage;
+	HP -= damage;
 	if (HP <= 0)
+	{
+		emit_signal("killed", Points);
 		Die();
+	}	
 }
 
 void godot::Enemy::Die()

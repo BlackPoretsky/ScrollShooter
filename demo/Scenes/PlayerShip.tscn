@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7s5mawlr3ap0"]
 
-[ext_resource type="Texture2D" uid="uid://b88cfaivgv2pk" path="res://assets/PNG/playerShip2_blue.png" id="1_cdchs"]
 [ext_resource type="Script" path="res://Scripts/PlayerShip.gd" id="1_e2nkw"]
+[ext_resource type="Texture2D" uid="uid://b8im77owhybfx" path="res://assets/ship_sidesA.png" id="2_1csgv"]
 
 [node name="PlayerShip" type="PlayerShip"]
 Velocity = 450.0
@@ -11,10 +11,10 @@ motion_mode = 1
 script = ExtResource("1_e2nkw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_cdchs")
+texture = ExtResource("2_1csgv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-56, 5, -11, -19, -4, -37, 4, -37, 13, -15, 56, 6, 38, 34, 17, 30, 13, 37, -13, 37, -17, 29, -38, 35)
+polygon = PackedVector2Array(-41.4286, 24.2857, -32.8571, 8.57143, -27.1429, 7.14286, -14.2857, 7.14286, 0, -45.7143, 14.2857, 5.71429, 31.4286, 5.71429, 42.8571, 22.8571, 37.1429, 47.1429, 20, 57.1429, -18.5714, 58.5714, -35.7143, 50)
 
 [node name="Muzzel" type="Marker2D" parent="."]
-position = Vector2(0, -47.1429)
+position = Vector2(0, -51.4286)

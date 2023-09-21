@@ -30,16 +30,16 @@ void godot::PlayerShip::Move(double delta)
 	set_position(Location);
 }
 
-void godot::PlayerShip::Shoot(Variant LazerScene, Variant Muzzel)
+void godot::PlayerShip::Shoot(Variant lazerScene, Variant muzzel)
 { 
-	if (Input::get_singleton()->is_action_pressed("shoot"))
+	if (Input::get_singleton()->is_action_just_pressed("shoot"))
 	{
-			emit_signal("laser_shot", LazerScene, Muzzel);
-	}
-			
+			emit_signal("laser_shot", lazerScene, muzzel);
+	}	
 }
 
 void godot::PlayerShip::Die()
 {
+	emit_signal("killed");
 	queue_free();
 }

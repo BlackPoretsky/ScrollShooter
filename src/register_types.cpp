@@ -4,6 +4,8 @@
 #include "PlayerShip.h"
 #include "Laser.h"
 #include "Enemy.h"
+#include "HUD.h"
+#include "GameOverScreen.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -21,6 +23,8 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
     ClassDB::register_class<PlayerShip>();
     ClassDB::register_class<Laser>();
     ClassDB::register_class<Enemy>();
+    ClassDB::register_class<HUD>();
+    ClassDB::register_class<GameOverScreen>();
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {

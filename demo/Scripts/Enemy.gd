@@ -1,5 +1,7 @@
 extends Enemy
 
+signal  killed(points)
+
 func _physics_process(delta):
 	Begin(delta)
 

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://uwwcbl3qtnb1"]
+
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_anqhe"]
+[ext_resource type="FontFile" uid="uid://bnfvnvv1h0ll5" path="res://assets/Font/kenvector_future_thin.ttf" id="2_cis3s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y64hj"]
+line_spacing = 20.0
+font = ExtResource("2_cis3s")
+font_size = 42
+
+[node name="HUD" type="HUD"]
+offset_right = 540.0
+offset_bottom = 960.0
+script = ExtResource("1_anqhe")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.035
+offset_bottom = 34.4
+grow_horizontal = 2
+text = "SCORE: 0"
+label_settings = SubResource("LabelSettings_y64hj")
+horizontal_alignment = 1
+vertical_alignment = 1

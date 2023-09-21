@@ -9,8 +9,8 @@ namespace godot
 		GDCLASS(Laser, Area2D)
 
 	private:
-		double Velocity = 600;
-		int Damage = 1;
+		double Velocity;
+		int Damage;
 
 	protected:
 		static void _bind_methods();
@@ -21,11 +21,11 @@ namespace godot
 
 		void Begin(double delta);
 
-		void SetDamage(int damage) { Damage = damage; }
-		double GetDamage() { return Damage; }
-
 		void SetVelocity(double velocity) { Velocity = velocity; }
+		void SetDamage(int damage) { Damage = damage; }
+
 		double GetVelocity() { return Velocity; }
+		double GetDamage() { return Damage; }
 	};
 
 }
